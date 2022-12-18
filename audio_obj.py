@@ -14,7 +14,7 @@ class razz_audio_object:
             f.write("}\n\n")
             f.write("superficill : {\n")
             for x in self.stage2:
-                f.write("    "+x.__str__()+"\n")
+                f.write("    "+x["current"].__str__()+": "+x["count"].__str__()+"\n")
             f.write("}\n\n")
 
     def truetone(self,path="examples/output.wav"):
