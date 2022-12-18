@@ -1,4 +1,4 @@
-import waveformlib as wavlon
+import wavlon as wavlon
 import clutil as cl
 
 class razz_audio_object:
