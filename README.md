@@ -1,3 +1,5 @@
+![razz logo](./logo.svg)
+
 # razz
 
 razz is a thing that is supposed to make music\
