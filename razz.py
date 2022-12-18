@@ -61,6 +61,22 @@ def join(mol):
         res += x+" "
     return res.strip()
 
+def merge(mol):
+    crnt = 0
+    count = 0
+    result = []
+    for x in mol:
+        if (x==crnt):
+            count+=1
+        else:
+            result.append({
+                "current":crnt,
+                "count":count
+            })
+            crnt=x
+            count = 1
+    return result
+
 def create(wav,razz):
     sav =  auoj.razz_audio_object()
     cde = delivai("start",0)
@@ -71,11 +87,12 @@ def create(wav,razz):
     sav.stage1 = cde
 
     cdg = wgen.mocml(cde,"10")
-    sav.stage2 = cdg
+    sav.stage2 = merge(cdg)
+
+    wgen.drjalis(sav.stage2)
     
     sav.save(razz)
     sav.truetone(wav)
-
 def generate(path):
     sav =  auoj.razz_audio_object()
     cde = delivai("start",0)

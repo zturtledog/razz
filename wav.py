@@ -51,7 +51,7 @@ def drjalis(ddf):
     lcal = []
     for x in ddf:
         tamp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        tamp[round(x*10)] = 1
+        tamp[round(x["current"]*10)] = 1
         tamp.reverse()
         lcal.append(tamp)
     enp = ""

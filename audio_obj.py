@@ -25,9 +25,9 @@ class razz_audio_object:
         for x in self.stage2:
             print(cl.lnup+"generating waveform truetone: "+(round(depth/len(self.stage2))*100).__str__()+"%")
             depth+=1
-            audio=wavlon.append_sinewave(audio,freq=200+(((prev+x)/2)*100),duration_milliseconds=200)
-            audio=wavlon.append_sinewave(audio,freq=200+(x*300),duration_milliseconds=200)
-            prev=x
+            audio=wavlon.append_sinewave(audio,freq=200+(((prev+x["current"])/2)*100),duration_milliseconds=200*x["count"])
+            audio=wavlon.append_sinewave(audio,freq=200+(x["current"]*300),duration_milliseconds=200*x["count"])
+            prev=x["current"]
         print(cl.lnup+"generating waveform truetone: 100%")
         print("saving to file (can take a while)")
         wavlon.save_wav(path,audio)
